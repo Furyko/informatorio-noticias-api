@@ -7,9 +7,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Column;
+import javax.persistence.ManyToOne;
+import javax.persistence.FetchType;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.validation.constraints.NotEmpty;
+import com.informatorio.noticiasapi.entity.Author;
+import com.informatorio.noticiasapi.entity.Source;
 
 @Entity
 public class Article {
@@ -35,9 +39,11 @@ public class Article {
     @NotEmpty(message = "El contenido no puede estar vacio.")
     private String content;
 
-    // Author: Relacion con Author
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Author author;
 
-    // Source: Relacion con Fuente de la noticia
+    @ManyToOne(optional = false, fetch = FetchType.EAGER)
+    private Source source;
 
     public Long getId() {
         return id;
@@ -89,5 +95,21 @@ public class Article {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public Author getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Author author) {
+        this.author = author;
+    }
+
+    public Source getSource() {
+        return source;
+    }
+
+    public void setSource(Source source) {
+        this.source = source;
     }
 }
