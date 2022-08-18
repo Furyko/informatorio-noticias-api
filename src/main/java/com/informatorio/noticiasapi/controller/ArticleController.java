@@ -9,7 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping(path = "/articles")
+@RequestMapping(path = "/api/v1/articles")
 public class ArticleController {
     private final ArticleRepository articleRepository;
 

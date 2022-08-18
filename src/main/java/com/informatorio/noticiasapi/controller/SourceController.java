@@ -9,9 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping(path = "/sources")
+@RequestMapping(path = "/api/v1/sources")
 public class SourceController {
-
     private final SourceRepository sourceRepository;
 
     @Autowired

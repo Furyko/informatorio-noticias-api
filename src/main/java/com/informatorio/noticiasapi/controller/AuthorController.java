@@ -9,9 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 @RestController
-@RequestMapping(path = "/authors")
+@RequestMapping(path = "/api/v1/authors")
 public class AuthorController {
-
     private final AuthorRepository authorRepository;
 
     @Autowired
