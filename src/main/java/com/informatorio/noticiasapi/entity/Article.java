@@ -6,12 +6,10 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.persistence.Column;
 import java.time.LocalDateTime;
 import org.hibernate.annotations.CreationTimestamp;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Email;
 
 @Entity
 public class Article {

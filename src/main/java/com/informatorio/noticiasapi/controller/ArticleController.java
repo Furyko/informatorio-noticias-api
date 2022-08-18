@@ -11,21 +11,20 @@ import org.springframework.http.ResponseEntity;
 @RestController
 @RequestMapping(path = "/articles")
 public class ArticleController {
-
-    private final ArticleRepository articleController;
+    private final ArticleRepository articleRepository;
 
     @Autowired
-    public ArticleController(ArticleRepository articleController) {
-        this.articleController = articleController;
+    public ArticleController(ArticleRepository articleRepository) {
+        this.articleRepository = articleRepository;
     }
 
     @GetMapping
     public @ResponseBody Iterable<Article> getArticles() {
-        return articleController.findAll();
+        return articleRepository.findAll();
     }
 
     @PostMapping
     public ResponseEntity<?> createArticle(@Valid @RequestBody Article article)  {
-        return new ResponseEntity<>(articleController.save(article), HttpStatus.CREATED);
+        return new ResponseEntity<>(articleRepository.save(article), HttpStatus.CREATED);
     }
 }
