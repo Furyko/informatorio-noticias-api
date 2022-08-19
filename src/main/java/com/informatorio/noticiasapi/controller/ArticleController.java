@@ -28,4 +28,9 @@ public class ArticleController {
         Article newArticle = articleService.saveOrUpdate(article);
         return new ResponseEntity<Article>(newArticle, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteArticle(@PathVariable("id") Long id) {
+        articleService.deleteArticle(id);
+    }
 }

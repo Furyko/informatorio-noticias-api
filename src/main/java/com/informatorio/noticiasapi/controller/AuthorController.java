@@ -28,4 +28,9 @@ public class AuthorController {
         Author newAuthor = authorService.saveOrUpdate(author);
         return new ResponseEntity<Author>(newAuthor, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteAuthor(@PathVariable("id") Long id) {
+        authorService.deleteAuthor(id);
+    }
 }

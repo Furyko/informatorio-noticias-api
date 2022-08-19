@@ -28,7 +28,7 @@ public class SourceService {
         return sourceRepository.save(source);
     }
 
-    public void delete(Long id) {
+    public void deleteSource(Long id) {
         Source source = sourceRepository.getById(id);
         sourceRepository.delete(source);
     }

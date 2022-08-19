@@ -28,4 +28,9 @@ public class SourceController {
         Source newSource = sourceService.saveOrUpdate(source);
         return new ResponseEntity<Source>(newSource, HttpStatus.CREATED);
     }
+
+    @DeleteMapping("{id}")
+    public void deleteSource(@PathVariable("id") Long id) {
+        sourceService.deleteSource(id);
+    }
 }
