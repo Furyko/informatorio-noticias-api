@@ -1,5 +1,6 @@
 package com.informatorio.noticiasapi.service;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import com.informatorio.noticiasapi.entity.Source;
 import com.informatorio.noticiasapi.repository.SourceRepository;
@@ -22,6 +23,10 @@ public class SourceService {
 
     public Source findById(Long id) {
         return sourceRepository.getById(id);
+    }
+
+    public Iterable<Source> findByWord(String word) {
+        return sourceRepository.findByName(word);
     }
 
     public Source saveOrUpdate(Source source) {

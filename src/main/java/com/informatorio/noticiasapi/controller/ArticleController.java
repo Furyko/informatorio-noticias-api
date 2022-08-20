@@ -19,7 +19,12 @@ public class ArticleController {
     }
 
     @GetMapping
-    public @ResponseBody Iterable<Article> getArticles() {
+    public @ResponseBody Iterable<Article> getArticles(
+        @RequestParam(name = "search", required = false) String search
+    ) {
+        if (search != null) {
+            return articleService.findBySearch(search);
+        }
         return articleService.findAll();
     }
 

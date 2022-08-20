@@ -20,6 +20,10 @@ public class ArticleService {
         return articleRepository.findAll();
     }
 
+    public Iterable<Article> findBySearch(String search) {
+        return articleRepository.findByTitle(search);
+    }
+
     public Article findById(Long id) {
         return articleRepository.getById(id);
     }

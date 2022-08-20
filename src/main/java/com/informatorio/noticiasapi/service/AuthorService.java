@@ -1,5 +1,6 @@
 package com.informatorio.noticiasapi.service;
 
+import java.time.LocalDate;
 import java.util.Objects;
 import com.informatorio.noticiasapi.entity.Author;
 import com.informatorio.noticiasapi.repository.AuthorRepository;
@@ -18,6 +19,14 @@ public class AuthorService {
 
     public Iterable<Author> findAll() {
         return authorRepository.findAll();
+    }
+
+    public Iterable<Author> findByName(String name) {
+        return authorRepository.findByFullName(name);
+    }
+
+    public Iterable<Author> findAfter(LocalDate date) {
+        return authorRepository.findByCreatedAt(date.atStartOfDay());
     }
 
     public Author findById(Long id) {
