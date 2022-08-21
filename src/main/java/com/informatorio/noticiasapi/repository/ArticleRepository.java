@@ -8,6 +8,6 @@ import org.springframework.data.jpa.repository.Query;
 
 @Repository
 public interface ArticleRepository extends JpaRepository<Article, Long> {
-    @Query("select u from Article u where u.title like %?1%")
+    @Query("select u from Article u where u.title like %?1% or u.description like %?1% or u.content like %?1%")
     List<Article> findByTitle(String search);
 }
